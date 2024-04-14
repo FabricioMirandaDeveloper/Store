@@ -6,7 +6,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Reddit Mono", monospace;
-    border: 1px red solid;
+    /* border: 1px red solid; */
 }
 html {
     font-size: 62.5%;
