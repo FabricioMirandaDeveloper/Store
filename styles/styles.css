@@ -28,7 +28,6 @@ background: linear-gradient(90deg, rgba(0,25,44,1) 0%, rgba(27,91,140,1) 50%, rg
 .title-container span:first-child {
   font-size: 30px;
 }
-
 .title-container span:last-child {
   font-size: 30px;
   font-weight: bold;

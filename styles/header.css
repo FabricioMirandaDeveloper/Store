@@ -26,6 +26,11 @@ header {
     justify-content: flex-end;
     list-style-type: none;
 }
+.search .bars {
+    color: white;
+    font-size: 3rem;
+    display: none;
+}
 .search .social .icons {
     font-size: 30px;
     color: white;
@@ -59,8 +64,27 @@ header {
     header {
         height: 90px;
     }
-    .nav ul, form, .social {
+    .nav ul, form, .social{
         display: none;
+    }
+    .search .bars{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin-right: 20px;
+    }
+    .search .social {
+        display: flex;
+        position: absolute;
+        background: skyblue;
+        top: 90px;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        opacity: 0;
+    } 
+    .search .active {
+        opacity: 1;
     }
 }
 @media (max-width: 480px) {
