@@ -3,3 +3,4 @@ menu_responsive.onclick = function () {
     navBar = document.querySelector(".social");
     navBar.classList.toggle("active");
 };
+
