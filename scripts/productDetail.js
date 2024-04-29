@@ -1,18 +1,16 @@
 const query = location.search;
 const params = new URLSearchParams(query);
 const id = params.get('id');
-console.log(id);
 
 function printDetails(id) {
     const product = card.find((product) => product.id === id);
-	console.log(product);
     const detailsTemplate = `
     <div class="product-images">
 		<div class="images-small">
-			${product.imagesSmall.map(each => `<img src="${each}" alt="mini" />`).join("")}
+			${product.imagesSmall.map(each => `<img src="${each}" alt="mini" onclick="changeMini(event)"/>`).join("")}
 		</div>
 		<div class="image-big">
-		<img src="${product.img}" alt="">
+		<img src="${product.img}" alt="" id="bigImg">
 		</div>
 	</div>
 		<div class="product-description">
@@ -32,7 +30,7 @@ function printDetails(id) {
 		</div>
 		<div class="product-checkout">
 			<span>TOTAL</span>
-			<span class="price">${product.price}</span>
+			<span class="price" id="price">S/ ${product.price}</span>
 			<span>${product.igv}</span>
 			<div>
 				<i class="fa-solid fa-cart-shopping iconss"></i>
@@ -44,7 +42,7 @@ function printDetails(id) {
 			</div>
 			<div class="buy">
 				<label for="">
-					<input class="cantidad" type="number" name="" id="" value="1">
+					<input class="cantidad" type="number" name="" onchange="changeSubtotal(event)" value="1">
 				</label>							
 				<button type="button">Añadir al carrito</button>
 			</div>
@@ -54,5 +52,19 @@ function printDetails(id) {
     const detailsSelector = document.querySelector("#details");
     detailsSelector.innerHTML = detailsTemplate;
 }
-    printDetails(id)
-  
+printDetails(id)
+
+function changeMini(event) {
+	const selectedSrc = event.target.src;
+  	const bigSelector = document.querySelector("#bigImg");
+  	bigSelector.src = selectedSrc;
+}
+
+function changeSubtotal(event){
+	const cantidadProducts = event.target.value
+	const product = card.find((product) => product.id === id);
+	const subtotal = cantidadProducts * product.price
+	const newPrice = document.getElementById("price")
+	newPrice.textContent = `S/ ${subtotal}`
+	console.log(subtotal);
+}

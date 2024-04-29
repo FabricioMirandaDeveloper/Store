@@ -22,7 +22,7 @@ function createCard(card) {
             <span class="product-title">${card.title}</span>
             <span class="product-description">${card.description}</span>
             <div class="product-price-block">
-                <span class="price">${card.price}</span>
+                <span class="price">S/ ${card.price}</span>
                 <span class="discount">50% Off</span>
             </div>
             <div class="product-tax-policy">${card.igv}</div>

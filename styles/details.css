@@ -95,6 +95,7 @@ main .product-checkout .buy {
 }
 main .buy .cantidad {
   width: 50%;
+  color: black;
 }
 .title-container span:first-child {
   font-size: 30px;
