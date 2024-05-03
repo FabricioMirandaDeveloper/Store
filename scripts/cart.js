@@ -22,21 +22,26 @@ function printCards(arrayOfProducts, idSelector) {
     }
     const productsSelector = document.getElementById(idSelector)
     productsSelector.innerHTML = productsTemplate
+
+    
 }
-printCards(cartproducs,"products")
+printCards(cartproducs,"cartproducts")
 
 function createTotalTemplate(arrayOfProducts) {
     let total = 0;
     arrayOfProducts.forEach(
     (each) => (total = total + each.price * each.quantity)
     );
-    return `
+    const totals = document.getElementById("total")
+    console.log(totals)
+    totals.innerHTML = `
     <h4 class="total-title"> Resumen del pedido </h4>
     <p class="total-p">Subtotal $ ${total}</p>
     <button id="buy" type="button">COMPRAR</button>
     `;
 }
 createTotalTemplate(cartproducs)
+console.log(createTotalTemplate(cartproducs))
 
 // ver porque no imprime
 /* let totals = document.getElementById("total")
