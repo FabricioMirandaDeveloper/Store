@@ -5,10 +5,14 @@ console.log(cartproducs);
 function createCart(cartproducs) {
     return `
         <div class="product-info">
-            <img class="product-img" src="${cartproducs.image}" alt="Macbook Pro"/>
-            <span class="product-title">${cartproducs.title}</span>
-            <span class="product-color">${cartproducs.color}</span>
-            <span class="product-color">${cartproducs.description}</span>
+            <div>
+                <img class="product-img" src="${cartproducs.image}" alt="Macbook Pro"/>
+            </div>
+            <div>
+                <span class="product-title">${cartproducs.title}</span>
+                <span class="product-color">${cartproducs.color}</span>
+                <span class="product-color">${cartproducs.description}</span>
+            </div>
             <div class="product-price-block">
                 <span class="price">S/ ${cartproducs.price}</span>
             </div>
@@ -42,13 +46,3 @@ function createTotalTemplate(arrayOfProducts) {
 }
 createTotalTemplate(cartproducs)
 console.log(createTotalTemplate(cartproducs))
-
-// ver porque no imprime
-/* let totals = document.getElementById("total")
-if (totals) {
-    totals.innerHTML = createTotalTemplate(cartproducs);
-} else {
-    console.error("Elemento con ID 'total' no encontrado");
-}
-totals.textContent = createTotalTemplate(cartproducs)
-totals.innerHTML = createTotalTemplate(cartproducs)  */
