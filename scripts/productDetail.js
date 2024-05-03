@@ -7,7 +7,7 @@ function printDetails(id) {
     const detailsTemplate = `
     <div class="product-images">
 		<div class="images-small">
-			${product.imagesSmall.map(each => `<img src="${each}" alt="mini" onclick="changeMini(event)"/>`).join("")}
+		${product.imagesSmall.map(each =>`<img src="${each}" alt="mini" onclick="changeMini(event)"/>`).join("")}
 		</div>
 		<div class="image-big">
 		<img src="${product.img}" alt="" id="bigImg">
@@ -56,8 +56,8 @@ printDetails(id)
 
 function changeMini(event) {
 	const selectedSrc = event.target.src;
-  	const bigSelector = document.querySelector("#bigImg");
-  	bigSelector.src = selectedSrc;
+	const bigSelector = document.querySelector("#bigImg");
+	bigSelector.src = selectedSrc;
 }
 
 function changeSubtotal(event){
