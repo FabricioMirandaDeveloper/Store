@@ -77,6 +77,7 @@ function saveProduct(event) {
 		title: found.title,
 		price: found.price,
 		image: found.img,
+		description: found.description,
 		color: document.querySelector(`#color-`).value, 
 		quantity: document.querySelector("#quantity-").value,
 	}
