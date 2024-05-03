@@ -18,7 +18,7 @@ function printDetails(id) {
 			<form class="selector">
 				<fieldset>
 					<label class="label" for="color">Color</label>
-					<select type="text" placeholder="Selecciona un color">
+					<select type="text" placeholder="Selecciona un color" id="color-">
 					${product.colors.map((each) => `<option value=${each}>${each}</option>`).join("")}
 					</select>
 				</fieldset>
@@ -42,9 +42,9 @@ function printDetails(id) {
 			</div>
 			<div class="buy">
 				<label for="">
-					<input class="cantidad" type="number" name="" onchange="changeSubtotal(event)" value="1">
+					<input class="cantidad" type="number" name="" onchange="changeSubtotal(event)" value="1" id="quantity-">
 				</label>							
-				<button type="button">Añadir al carrito</button>
+				<button type="button" onclick="saveProduct()">Añadir al carrito</button>
 			</div>
 		</div>
 	</div>
@@ -63,8 +63,31 @@ function changeMini(event) {
 function changeSubtotal(event){
 	const cantidadProducts = event.target.value
 	const product = card.find((product) => product.id === id);
+	console.log(product);
 	const subtotal = cantidadProducts * product.price
 	const newPrice = document.getElementById("price")
 	newPrice.textContent = `S/ ${subtotal}`
 	console.log(subtotal);
 }
+
+function saveProduct(event) {
+	const found = card.find((product) => product.id === id);
+	let product = {
+		id: id,
+		title: found.title,
+		price: found.price,
+		image: found.img,
+		description: found.description,
+		color: document.querySelector(`#color-`).value, 
+		quantity: document.querySelector("#quantity-").value,
+	}
+	console.log(product)
+	const productsInCart = localStorage.getItem("cart")
+	let products= []
+	if(productsInCart) {
+		products = JSON.parse(productsInCart)
+	}
+	products.push(product)
+	localStorage.setItem("cart", JSON.stringify(products))
+}
+
