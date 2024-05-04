@@ -1,12 +1,12 @@
+// Traigo los productos de mi local storage y los convierto en un array
 let cartproducs = JSON.parse(localStorage.getItem("cart"))
-console.log(cartproducs);
-
 
 function createCart(cartproducs) {
     return `
         <div class="product-info">
             <div>
                 <img class="product-img" src="${cartproducs.image}" alt="Macbook Pro"/>
+                <input type="number" name="quantity" min="1" id="${cartproducs.id}" onchange="changeQuantity(event)">
             </div>
             <div>
                 <span class="product-title">${cartproducs.title}</span>
@@ -14,11 +14,12 @@ function createCart(cartproducs) {
                 <span class="product-color">${cartproducs.description}</span>
             </div>
             <div class="product-price-block">
-                <span class="price">S/ ${cartproducs.price}</span>
+                <span class="price" id="product-price-${cartproducs.id}">S/ ${cartproducs.price}</span>
             </div>
         </div>
     `
 }
+
 function printCards(arrayOfProducts, idSelector) {
     let productsTemplate = ""
     for(const element of arrayOfProducts) {
@@ -26,23 +27,22 @@ function printCards(arrayOfProducts, idSelector) {
     }
     const productsSelector = document.getElementById(idSelector)
     productsSelector.innerHTML = productsTemplate
-
-    
 }
 printCards(cartproducs,"cartproducts")
 
-function createTotalTemplate(arrayOfProducts) {
-    let total = 0;
-    arrayOfProducts.forEach(
-    (each) => (total = total + each.price * each.quantity)
-    );
-    const totals = document.getElementById("total")
-    console.log(totals)
-    totals.innerHTML = `
-    <h4 class="total-title"> Resumen del pedido </h4>
-    <p class="total-p">Subtotal $ ${total}</p>
-    <button id="buy" type="button">COMPRAR</button>
-    `;
+
+function changeQuantity(event) {
+    const idProduct = event.target.id
+    const valueProduct = Number(event.target.value);
+    const productFound = cartproducs.find(x => x.id === idProduct)
+    productFound.quantity = valueProduct
+    productFound.subTotal = productFound.price * productFound.quantity
+    localStorage.setItem("cart", JSON.stringify(cartproducs))
+    const subtotalElement = document.getElementById(`product-price-${idProduct}`);
+    subtotalElement.innerText = `S/ ${productFound.subTotal}`;
+    createTotalTemplate(cartproducs);
 }
-createTotalTemplate(cartproducs)
-console.log(createTotalTemplate(cartproducs))
+
+
+
+
