@@ -1,7 +1,44 @@
-// #region nav
+// #region CREACION DINAMICA DE MI HEADER
+// inyecto dinamicamente el header
+const headerSelector = document.getElementById("header")
+headerSelector.innerHTML = `
+    <div class="container">
+        <div class="search">
+            <div class="logo">
+                <a href="index.html"><img src="assets/logo.jpg"" alt="logo"/></a>
+            </div>
+            <div class="form">
+                <form id="formulario">
+                    <input type="text" placeholder="Search" id="search"/>
+                </form>
+            </div>
+            <div class="bars">
+                <label for="check" class="checkbtn">
+                    <i class="fa-solid fa-bars"></i>
+                </label>
+            </div>
+            <div class="social">
+                <ul class="social-icons">
+                    <li>
+                        <a href="#"><i class="fa-brands fa-tiktok icons"></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class="fa-brands fa-facebook icons"></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class="fa-brands fa-instagram icons"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="nav" id="nav">
+        </div>
+    </div>
+`
+// inyecto dinamicamente la lista que se encuentra dentro de mi header
 const navSelector = document.getElementById("nav")
 const optionsNav = [
-    { title: "INICIO", linkTo: "./how.html", },
+    { title: "INICIO", linkTo: "./index.html", },
     { title: "PRODUCTOS", linkTo: "#" },
     { title: "GUÍA PARA COMPRAR", linkTo: "./orders.html" },
     { title: "CATALOGOS", linkTo: "#" },
@@ -9,7 +46,50 @@ const optionsNav = [
     { title: "BLOG", linkTo: "#" },
     { title: "CONTACTENOS", linkTo: "#" },
 ];
-for (let option of optionsNav) {
+const navHtml = optionsNav.reduce((html, option) => {
+    return `${html}
+        <li>
+            <a class="nav-button" href="${option.linkTo}">
+                ${option.title}
+            </a>
+        </li>
+    `
+}, "")
+navSelector.innerHTML = `<ul>${navHtml}</ul>`
+/* const headerSelector2 = document.getElementById("headerWithoutInput")
+headerSelector2.innerHTML =`
+    <div class="container">
+        <div class="search">
+            <div class="logo">
+                <a href="index.html"><img src="assets/logo.jpg"" alt="logo"/></a>
+            </div>
+            <div class="form">
+            </div>
+            <div class="bars">
+                <label for="check" class="checkbtn">
+                    <i class="fa-solid fa-bars"></i>
+                </label>
+            </div>
+            <div class="social">
+                <ul class="social-icons">
+                    <li>
+                        <a href="#"><i class="fa-brands fa-tiktok icons"></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class="fa-brands fa-facebook icons"></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class="fa-brands fa-instagram icons"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="nav" id="nav">
+        </div>
+    </div> 
+` */
+// tambien se puede inyectar de esta manera
+/* for (let option of optionsNav) {
     const li = document.createElement("li")
     const anchor = document.createElement("a");
     // anchor.className = "nav-button"
@@ -17,7 +97,7 @@ for (let option of optionsNav) {
     anchor.href = option.linkTo
     li.appendChild(anchor)
     navSelector.appendChild(li)
-}   
+}  */  
 // #endregion
 //#region footer
 const footerSelector = document.querySelector("#footer-container")

@@ -1,6 +1,6 @@
 header {
     height: 125px;
-    background-color: var(--color-principal);
+    background-color: var(--white);
     padding: 1rem;
 }
 .search {
@@ -9,6 +9,9 @@ header {
     justify-content: space-between;
     align-items: center;
 }
+.search .logo img{
+    width: 200px;
+}
 .search .form {
     display: flex;
     justify-content: center;
@@ -16,24 +19,29 @@ header {
 .search .form input {
     height: 25px;
     border-radius: 1rem;
-    border: none;
+    border: var(--color-principal) 2px solid;
     width: 300px;
     padding: 2rem;
     font-size: 1.6rem;
 }
-.search .social ul {
-    display: flex;
-    justify-content: flex-end;
-    list-style-type: none;
+.search .form input:focus {
+    border: var(--color-principal) 2px solid;
+    outline: none;
 }
 .search .bars {
     color: white;
     font-size: 3rem;
     display: none;
 }
+.search .social ul {
+    display: flex;
+    justify-content: flex-end;
+    list-style-type: none;
+}
+
 .search .social .icons {
     font-size: 30px;
-    color: white;
+    color: var(--color-principal);
     padding: 0 10px;
 }
 .nav {
@@ -49,11 +57,11 @@ header {
     font-weight: bold;
     text-align: center;
     text-decoration: none;
-    color: white;
+    color: var(--color-secundario);
     font-size: 1.6rem;
 }
 .nav ul li a:hover {
-    border-bottom: 2px solid red;
+    border-bottom: 2px solid var(--color-principal);
 }
 @media (max-width: 1024px) {
     .nav ul {

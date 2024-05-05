@@ -1,6 +1,6 @@
 footer {
     min-height: auto;
-    background-color: var(--color-principal);
+    background-color: var(--color-terciario);
 }
 .columns-container {
     display: grid;

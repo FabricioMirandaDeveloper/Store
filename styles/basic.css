@@ -1,5 +1,9 @@
 :root {
-    --color-principal: #00192C
+    --color-secundario: #00192C;
+    --color-principal: #830321;
+    --color-terciario: #360712;
+    --white: #ffffff;
+    --black: #232323;
 }
 * {
     margin: 0;

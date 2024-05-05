@@ -20,7 +20,7 @@ function createCard(card) {
         <img class="product-img" src="${card.img}" alt="Macbook Pro"/>
         <div class="product-info">
             <span class="product-title">${card.title}</span>
-            <span class="product-description">${card.description}</span>
+            <span class="product-description"></span>
             <div class="product-price-block">
                 <span class="price">S/ ${card.price}</span>
                 <span class="discount">50% Off</span>
