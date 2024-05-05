@@ -1,6 +1,6 @@
-let menu_responsive = document.querySelector(".checkbtn");
-menu_responsive.onclick = function () {
-    navBar = document.querySelector(".social");
+let menuResponsive = document.querySelector(".checkbtn");
+menuResponsive.addEventListener("click", () => function () {
+    const navBar = document.querySelector(".social");
     navBar.classList.toggle("active");
-};
+}) 
 

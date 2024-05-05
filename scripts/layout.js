@@ -56,38 +56,7 @@ const navHtml = optionsNav.reduce((html, option) => {
     `
 }, "")
 navSelector.innerHTML = `<ul>${navHtml}</ul>`
-/* const headerSelector2 = document.getElementById("headerWithoutInput")
-headerSelector2.innerHTML =`
-    <div class="container">
-        <div class="search">
-            <div class="logo">
-                <a href="index.html"><img src="assets/logo.jpg"" alt="logo"/></a>
-            </div>
-            <div class="form">
-            </div>
-            <div class="bars">
-                <label for="check" class="checkbtn">
-                    <i class="fa-solid fa-bars"></i>
-                </label>
-            </div>
-            <div class="social">
-                <ul class="social-icons">
-                    <li>
-                        <a href="#"><i class="fa-brands fa-tiktok icons"></i></a>
-                    </li>
-                    <li>
-                        <a href=""><i class="fa-brands fa-facebook icons"></i></a>
-                    </li>
-                    <li>
-                        <a href=""><i class="fa-brands fa-instagram icons"></i></a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="nav" id="nav">
-        </div>
-    </div> 
-` */
+
 // tambien se puede inyectar de esta manera
 /* for (let option of optionsNav) {
     const li = document.createElement("li")
