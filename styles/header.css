@@ -29,7 +29,6 @@ header {
     outline: none;
 }
 .search .bars {
-    color: white;
     font-size: 3rem;
     display: none;
 }
@@ -81,17 +80,26 @@ header {
         align-items: center;
         margin-right: 20px;
     }
-    .search .social {
+    .search .bars label {
+        color:  var(--color-principal);
+    }
+    .nav ul{
         display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
         position: absolute;
-        background: skyblue;
+        background-color: var(--color-principal);
         top: 90px;
         left: 0;
         width: 100vw;
-        height: 100vh;
+        height: calc(100vh - 90px);
         opacity: 0;
     } 
-    .search .active {
+    .nav ul li a{
+        color: var(--white);
+    }
+    .nav .active {
         opacity: 1;
     }
 }
