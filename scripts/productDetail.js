@@ -45,6 +45,7 @@ function printDetails(id) {
 					<input class="cantidad" type="number" name="" onchange="changeSubtotal(event)" value="1" id="quantity-">
 				</label>							
 				<button type="button" onclick="saveProduct()">Añadir al carrito</button>
+				<button type="button" id="heartIcon"><i class="fa-regular fa-heart"></i></button>
 			</div>
 		</div>
 	</div>

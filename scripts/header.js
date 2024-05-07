@@ -1,28 +1,28 @@
 // inyecto dinamicamente el header
-const headerSelector2 = document.getElementById("headerWithoutInput");
-headerSelector2.innerHTML = `
+const headerSelector = document.getElementById("header")
+headerSelector.innerHTML = `
     <div class="container">
         <div class="search">
             <div class="logo">
                 <a href="index.html"><img src="assets/logo.jpg"" alt="logo"/></a>
             </div>
             <div class="form">
+                <form id="formulario">
+                    <input type="text" placeholder="Search" id="search"/>
+                </form>
             </div>
             <div class="bars">
-                <label for="check" class="checkbtn">
+                <label for="check" "class="checkbtn" id="menuResponsive">
                     <i class="fa-solid fa-bars"></i>
                 </label>
             </div>
             <div class="social">
                 <ul class="social-icons">
                     <li>
-                        <a href="#"><i class="fa-brands fa-tiktok icons"></i></a>
+                        <a href="cart.html"><i class="fa-solid fa-cart-shopping icons"></i></a>
                     </li>
                     <li>
-                        <a href=""><i class="fa-brands fa-facebook icons"></i></a>
-                    </li>
-                    <li>
-                        <a href=""><i class="fa-brands fa-instagram icons"></i></a>
+                        <a href="favorite.html"><i class="fa-solid fa-heart icons"></i></a>
                     </li>
                 </ul>
             </div>

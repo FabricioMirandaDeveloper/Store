@@ -62,6 +62,12 @@ header {
 .nav ul li a:hover {
     border-bottom: 2px solid var(--color-principal);
 }
+.heartIcon {
+    color: red;
+    font-size: 2rem;
+    padding: 1rem;
+    background: wheat;
+}
 @media (max-width: 1024px) {
     .nav ul {
         margin: 0;

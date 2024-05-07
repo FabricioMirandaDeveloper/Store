@@ -50,7 +50,7 @@ main {
 	overflow: hidden;
   border: 2px var(--color-principal) solid;
   text-decoration: none;
-  color: #00192C;
+  color: var(--color-principal);
  }
 .product-img {
   width: 100%;
@@ -61,8 +61,6 @@ main {
 }
 .product-info {
   padding: 20px;
-  background: var(--color-principal);
-  color: white;
 }
 .product-title {
 	font-size: 1.4rem;

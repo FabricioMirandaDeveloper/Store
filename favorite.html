@@ -8,18 +8,24 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Anta&family=Reddit+Mono:wght@200..900&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="styles/basic.css">
-		<link rel="stylesheet" href="styles/details.css" />
+		<link rel="stylesheet" href="styles/styles.css" />
 		<link rel="stylesheet" href="styles/header.css">
 		<link rel="stylesheet" href="styles/footer.css">
+		<link rel="stylesheet" href="styles/card.css">
 		<script src="https://kit.fontawesome.com/0ef9856991.js" crossorigin="anonymous"></script>
 	</head>
 	<body>
-		<header id="headerWithoutInput">
-		</header>
+		<header id="headerWithoutInput"></header>
+		<section id="hero">
+		</section>
 		<main>
 			<div class="container">
-				<div class="columns-container-products" id="details">
-			<div class="sales-block"></div>
+				<div class="product-container" id="products">
+					<article id="cartproducts"></article>
+					<article id="total">
+					</article>
+				</div>
+			</div>
 		</main>
 		<footer>
 			<div class="container" id="footer">
@@ -29,8 +35,11 @@
 		</footer>
 		<script src="scripts/header2.js"></script>
 		<script src="scripts/footer.js"></script>
+		<script src="script.js"></script>
 		<script src="scripts/products.js"></script>
-		<script src="scripts/productDetail.js"></script>
-		<script src="scripts/favorite.js"></script>
+		<script src="scripts/filterProducts.js"></script>
+		<script src="scripts/cart.js"></script>
+		<script src="scripts/total.js"></script>
+		<script src="scripts/buy.js"></script>
 	</body>
 </html>
