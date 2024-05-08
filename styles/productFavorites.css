@@ -1,0 +1,27 @@
+.productFavorits {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;   
+    margin: 2rem auto;
+}
+.productFavorits > div {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid;
+    padding: 1rem;
+    margin: 1rem 0;
+}
+.productFavorits img {
+    width: 200px;
+    margin-right: 2rem;
+}
+.productFavorits h2, p{
+    margin-bottom: 2rem;
+}
+.productFavorits p {
+    font-size: 1.2rem;
+}
+.productFavorits span {
+    font-size: 2rem;
+    color: var(--color-principal);
+}

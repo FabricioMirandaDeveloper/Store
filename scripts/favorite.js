@@ -1,7 +1,6 @@
+// Mandamos al localstorage los productos favoritos
 const heartIcon = document.getElementById("heartIcon")
-console.log(heartIcon);
 heartIcon.addEventListener('click', function () {
-    console.log(heartIcon);
     const found = card.find((product) => product.id === id)
     let product = {
         id: id,
@@ -9,17 +8,21 @@ heartIcon.addEventListener('click', function () {
 		price: found.price,
 		image: found.img,
 		description: found.description,
-		color: document.querySelector(`#color-`).value, 
-		quantity: document.querySelector("#quantity-").value,
+		/* color: document.querySelector(`#color-`).value, 
+		quantity: document.querySelector("#quantity-").value, */
     }
-    console.log(product)
 	const productsInCart = localStorage.getItem("favorits")
 	let products= []
 	if(productsInCart) {
 		products = JSON.parse(productsInCart)
 	}
-	products.push(product)
-	localStorage.setItem("favorits", JSON.stringify(products))
-
+	// Verifica si el producto ya existe en la lista de favoritos
+	const productExists = products.some((p) => p.id === product.id);
+	if (!productExists) {
+        // Agrega el producto solo si no existe
+        products.push(product);
+        localStorage.setItem("favorits", JSON.stringify(products));
+    }
 });
+
 

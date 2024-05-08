@@ -9,7 +9,7 @@ headerSelector2.innerHTML = `
             <div class="form">
             </div>
             <div class="bars">
-                <label for="check" class="checkbtn">
+                <label for="check" "class="checkbtn" id="menuResponsive">
                     <i class="fa-solid fa-bars"></i>
                 </label>
             </div>
