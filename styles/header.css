@@ -68,6 +68,9 @@ header {
     padding: 1rem;
     background: wheat;
 }
+.hidden {
+    display: none;
+}
 @media (max-width: 1024px) {
     .nav ul {
         margin: 0;

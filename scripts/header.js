@@ -19,10 +19,16 @@ headerSelector.innerHTML = `
             <div class="social">
                 <ul class="social-icons">
                     <li>
-                        <a href="cart.html"><i class="fa-solid fa-cart-shopping icons"></i></a>
+                        <a id="iconoCarrito" href="cart.html"><i class="fa-solid fa-cart-shopping icons"></i></a>
                     </li>
                     <li>
-                        <a href="favorite.html"><i class="fa-solid fa-heart icons"></i></a>
+                        <a id="iconoCorazon" href="favorite.html"><i class="fa-solid fa-heart icons"></i></a>
+                    </li>
+                    <li>
+                        <a id="iconoUsuario" href="#"><i class="fa-solid fa-user icons"></i></a>
+                    </li>
+                    <li>
+                        <a id="iconoPerfil" href="#"><i class="fa-solid fa-user-check icons"></i></i></a>
                     </li>
                 </ul>
             </div>
@@ -52,3 +58,42 @@ const navHtml = optionsNav.reduce((html, option) => {
     `
 }, "")
 navSelector.innerHTML = `<ul>${navHtml}</ul>`
+
+if (localStorage.getItem('isOnline') === null) {
+    localStorage.setItem('isOnline', 'false');
+}
+
+function renderIcons(
+) {
+    const isOnline = localStorage.getItem('isOnline') === 'true';
+    const iconoCarrito = document.getElementById('iconoCarrito');
+    const iconoCorazon = document.getElementById('iconoCorazon');
+    const iconoUsuario = document.getElementById('iconoUsuario');
+    const iconoPerfil = document.getElementById('iconoPerfil');
+
+    if (isOnline) {
+        iconoUsuario.classList.add('hidden');
+        iconoCarrito.classList.remove('hidden');
+        iconoPerfil.classList.remove('hidden');
+        iconoCorazon.classList.remove('hidden')
+    } else {
+        iconoUsuario.classList.remove('hidden');
+        iconoCarrito.classList.add('hidden');
+        iconoPerfil.classList.add('hidden');
+        iconoCorazon.classList.add('hidden')
+    }
+}
+
+document.getElementById('iconoUsuario').addEventListener('click', function(
+) {
+    localStorage.setItem('isOnline', 'true');
+    renderIcons();
+});
+
+document.getElementById('iconoPerfil').addEventListener('click', function(
+) {
+    localStorage.setItem('isOnline', 'false');
+    renderIcons();
+});
+
+document.addEventListener('DOMContentLoaded', renderIcons);
