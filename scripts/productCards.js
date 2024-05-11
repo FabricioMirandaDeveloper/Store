@@ -1,4 +1,5 @@
 function createCard(card) {
+    const formattedPrice = card.price.toFixed(2);
     return `
         <a class="product-card" href="details.html?id=${card.id}">
         <img class="product-img" src="${card.img}" alt="Macbook Pro"/>
@@ -6,7 +7,7 @@ function createCard(card) {
             <span class="product-title">${card.title}</span>
             <span class="product-description"></span>
             <div class="product-price-block">
-                <span class="price">S/ ${card.price}</span>
+                <span class="price">S/ ${formattedPrice}</span>
             </div>
         </div>
     `

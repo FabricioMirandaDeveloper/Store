@@ -2,11 +2,12 @@
 let cartproducs = JSON.parse(localStorage.getItem("cart"))
 
 function createCart(cartproducs) {
+    console.log(cartproducs.quantity);
     return `
         <div class="product-info">
             <div>
                 <img class="product-img" src="${cartproducs.image}" alt="Macbook Pro"/>
-                <input type="number" name="quantity" min="1" id="${cartproducs.id}" onchange="changeQuantity(event)">
+                <input type="number" name="quantity" min="1" id="${cartproducs.id}" onchange="changeQuantity(event)" value="${cartproducs.quantity}">
             </div>
             <div>
                 <span class="product-title">${cartproducs.title}</span>

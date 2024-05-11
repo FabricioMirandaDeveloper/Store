@@ -42,8 +42,8 @@ function printDetails(id) {
 			</div>
 			<div class="buy">
 				<label for="">
-					<input class="cantidad" type="number" name="" onchange="changeSubtotal(event)" value="1" id="quantity-">
-				</label>							
+					<input class="cantidad" type="number" name="" onchange="changeSubtotal(event)" value="1" id="quantity-" min="1">				
+				</label>	
 				<button type="button" onclick="saveProduct()">Añadir al carrito</button>
 				<button type="button" id="heartIcon"><i class="fa-regular fa-heart"></i></button>
 			</div>
@@ -60,19 +60,18 @@ function changeMini(event) {
 	const bigSelector = document.querySelector("#bigImg");
 	bigSelector.src = selectedSrc;
 }
-
 function changeSubtotal(event){
-	const cantidadProducts = event.target.value
+	const cantidadProducts = parseInt(event.target.value)
 	const product = card.find((product) => product.id === id);
-	console.log(product);
 	const subtotal = (cantidadProducts * product.price).toFixed(2)
 	const newPrice = document.getElementById("price")
 	newPrice.textContent = `S/ ${subtotal}`
-	console.log(subtotal);
 }
 
 function saveProduct(event) {
+	// 1. Obtener el producto seleccionado
 	const found = card.find((product) => product.id === id);
+	 // 2. Crear el objeto producto
 	let product = {
 		id: id,
 		title: found.title,
@@ -80,15 +79,25 @@ function saveProduct(event) {
 		image: found.img,
 		description: found.description,
 		color: document.querySelector(`#color-`).value, 
-		quantity: document.querySelector("#quantity-").value,
+		quantity: parseInt(document.querySelector("#quantity-").value),
 	}
-	console.log(product)
+	 // 3. Obtener productos almacenados en el carrito
 	const productsInCart = localStorage.getItem("cart")
 	let products= []
 	if(productsInCart) {
 		products = JSON.parse(productsInCart)
 	}
-	products.push(product)
+	 // 4. Buscar producto existente en el carrito
+	 const existingProductIndex = products.findIndex((productInCart) => productInCart.id === product.id);
+	 console.log(existingProductIndex);
+	 // 5. Actualizar la cantidad si el producto existe
+	if (existingProductIndex !== -1) {
+        products[existingProductIndex].quantity = product.quantity;
+    } else {
+    // 6. Agregar producto al carrito si no existe
+        products.push(product)
+    }
+	// 7. Guardar el carrito actualizado
 	localStorage.setItem("cart", JSON.stringify(products))
 }
 
