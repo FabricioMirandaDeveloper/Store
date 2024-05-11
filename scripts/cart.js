@@ -36,7 +36,7 @@ function changeQuantity(event) {
     const valueProduct = Number(event.target.value);
     const productFound = cartproducs.find(x => x.id === idProduct)
     productFound.quantity = valueProduct
-    productFound.subTotal = productFound.price * productFound.quantity
+    productFound.subTotal = (productFound.price * productFound.quantity).toFixed(2)
     localStorage.setItem("cart", JSON.stringify(cartproducs))
     const subtotalElement = document.getElementById(`product-price-${idProduct}`);
     subtotalElement.innerText = `S/ ${productFound.subTotal}`;

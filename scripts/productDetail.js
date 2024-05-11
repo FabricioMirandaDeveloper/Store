@@ -65,7 +65,7 @@ function changeSubtotal(event){
 	const cantidadProducts = event.target.value
 	const product = card.find((product) => product.id === id);
 	console.log(product);
-	const subtotal = cantidadProducts * product.price
+	const subtotal = (cantidadProducts * product.price).toFixed(2)
 	const newPrice = document.getElementById("price")
 	newPrice.textContent = `S/ ${subtotal}`
 	console.log(subtotal);

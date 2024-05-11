@@ -1,4 +1,3 @@
-console.log(cartproducs);
 let buySelector = document.getElementById("buy")
 buySelector.addEventListener("click", function(){
     // Vacía el array cartproducs

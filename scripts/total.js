@@ -1,8 +1,10 @@
 function createTotalTemplate(arrayOfProducts) {
     let total = 0;
     arrayOfProducts.forEach(
-    (each) => (total = total + each.price * each.quantity)
-    );
+    (each) => {
+        (total = total + Number(each.price) * Number(each.quantity))
+        total = parseFloat(total.toFixed(2))
+    });
     const totals = document.getElementById("total")
     totals.innerHTML = `
     <div>
