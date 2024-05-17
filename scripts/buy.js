@@ -8,6 +8,10 @@ buySelector.addEventListener("click", function(){
     const cartProducts = document.getElementById("cartproducts");
     if (cartProducts) {
         cartProducts.remove();
+        swal.fire({
+            title: `Su compra se realizó correctamente`,
+            icon: "success",
+        });
     }
 })
 

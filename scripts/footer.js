@@ -52,3 +52,4 @@ for (let options of optionsFooter) {
     div.appendChild(ul)
     footerSelector.appendChild(div)
 }       
+

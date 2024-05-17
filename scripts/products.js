@@ -21,3 +21,4 @@ const card = [
     new Product("assets/imgs/007-bolsa-de-agua-terapeutica-.jpg", "BOLSA DE AGUA TERAPÉUTICA","Con la bolsa de agua caliente podrás relajar los músculos y los hombros tensados causados por demasiado estrés y entrenamiento intenso.",9.90, "50% Off", "IGV incluido", "007", ["Blanco","Negro", "Gris"],["assets/armas/arma2.webp","assets/armas/arma2.webp"]),
     new Product("assets/imgs/008-desodorante-roll-on-by-esika.jpg", "DESODORANTE ROLL ON BY ÉSIKA","Desodorante roll on sin alcohol.", 5.90, "50% Off", "IGV incluido", "008", ["Blanco","Negro", "Gris"],["assets/armas/arma2.webp","assets/armas/arma2.webp"]),
 ]
+export { card }

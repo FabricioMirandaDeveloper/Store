@@ -1,3 +1,5 @@
+import { card } from "./products.js"
+
 function createCard(card) {
     const formattedPrice = card.price.toFixed(2);
     return `

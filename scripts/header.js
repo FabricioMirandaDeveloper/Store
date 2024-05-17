@@ -28,7 +28,7 @@ headerSelector.innerHTML = `
                         <a id="iconoUsuario" href="#"><i class="fa-solid fa-user icons"></i></a>
                     </li>
                     <li>
-                        <a id="iconoPerfil" href="#"><i class="fa-solid fa-user-check icons"></i></i></a>
+                        <a id="iconoPerfil" href="#"><i class="fa-solid fa-user-check icons"></i></a>
                     </li>
                 </ul>
             </div>
@@ -38,26 +38,53 @@ headerSelector.innerHTML = `
     </div>
 `
 // inyecto dinamicamente la lista que se encuentra dentro de mi header
-const navSelector = document.getElementById("nav")
-const optionsNav = [
-    { title: "INICIO", linkTo: "./index.html", },
-    { title: "PRODUCTOS", linkTo: "#" },
-    { title: "GUÍA PARA COMPRAR", linkTo: "./orders.html" },
-    { title: "CATALOGOS", linkTo: "#" },
-    { title: "OFERTAS", linkTo: "#" },
-    { title: "BLOG", linkTo: "#" },
-    { title: "CONTACTENOS", linkTo: "#" },
-];
-const navHtml = optionsNav.reduce((html, option) => {
-    return `${html}
+/* fetch('./data/options.json')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => console.log(data))
+    .catch(error => console.error('ERROR:', error)); */
+document.addEventListener("DOMContentLoaded", async () => {
+    const optionsNav = await obtenerDatos()
+    /* const optionsNav = [
+        { title: "INICIO", linkTo: "./index.html", },
+        { title: "PRODUCTOS", linkTo: "#" },
+        { title: "GUÍA PARA COMPRAR", linkTo: "./orders.html" },
+        { title: "CATALOGOS", linkTo: "#" },
+        { title: "OFERTAS", linkTo: "#" },
+        { title: "BLOG", linkTo: "#" },
+        { title: "CONTACTENOS", linkTo: "#" },
+    ]; */
+    console.log(optionsNav);
+    const navHtml = optionsNav.reduce((html, option) => {
+        return `${html}
         <li>
             <a class="nav-button" href="${option.linkTo}">
                 ${option.title}
             </a>
         </li>
     `
-}, "")
-navSelector.innerHTML = `<ul>${navHtml}</ul>`
+    }, "")
+    navSelector.innerHTML = `<ul>${navHtml}</ul>`
+})
+async function obtenerDatos() {
+    try {
+        const response = await fetch('./data/options.json');
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        return data.nav
+    } catch (error) {
+        console.error('ERROR:', error);
+        return []
+    }
+}
+const navSelector = document.getElementById("nav")
+
 
 if (localStorage.getItem('isOnline') === null) {
     localStorage.setItem('isOnline', 'false');
@@ -84,13 +111,13 @@ function renderIcons(
     }
 }
 
-document.getElementById('iconoUsuario').addEventListener('click', function(
+document.getElementById('iconoUsuario').addEventListener('click', function (
 ) {
     localStorage.setItem('isOnline', 'true');
     renderIcons();
 });
 
-document.getElementById('iconoPerfil').addEventListener('click', function(
+document.getElementById('iconoPerfil').addEventListener('click', function (
 ) {
     localStorage.setItem('isOnline', 'false');
     renderIcons();

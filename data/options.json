@@ -1,0 +1,32 @@
+{
+    "nav": [
+        {
+            "title": "INICIO",
+            "linkTo": "./index.html"
+        },
+        {
+            "title": "PRODUCTOS",
+            "linkTo": "#"
+        },
+        {
+            "title": "GUÍA PARA COMPRAR",
+            "linkTo": "./orders.html"
+        },
+        {
+            "title": "CATALOGOS",
+            "linkTo": "#"
+        },
+        {
+            "title": "OFERTAS",
+            "linkTo": "#"
+        },
+        {
+            "title": "BLOG",
+            "linkTo": "#"
+        },
+        {
+            "title": "CONTACTENOS",
+            "linkTo": "#"
+        }
+    ]
+}

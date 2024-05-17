@@ -89,14 +89,46 @@ function saveProduct(event) {
 	}
 	 // 4. Buscar producto existente en el carrito
 	 const existingProductIndex = products.findIndex((productInCart) => productInCart.id === product.id);
+	 
 	 console.log(existingProductIndex);
+	 
 	 // 5. Actualizar la cantidad si el producto existe
-	if (existingProductIndex !== -1) {
+	 if (existingProductIndex !== -1) {
+        const existingProduct = products[existingProductIndex];
+		console.log(existingProduct);
+        if (existingProduct.quantity === product.quantity) {
+            // Si la cantidad no ha cambiado, mostrar la notificación
+            swal.fire({
+                title: "El producto ya se encuentra en el carrito",
+            });
+        } else {
+            // Si la cantidad ha cambiado, actualizarla en el producto existente
+            products[existingProductIndex].quantity = product.quantity;
+			swal.fire({
+                title: `Cantidad de ${product.title} se actualizó correctamente`,
+                icon: "success",
+            });
+        }
+    } else {
+        // 6. Agregar producto al carrito si no existe
+        products.push(product);
+		// Mostrar alerta personalizada
+        swal.fire({
+            title: `${product.title} se agregó correctamente al carrito`,
+            icon: "success",
+        });
+    }
+	 
+/* 	if (existingProductIndex !== -1) {
         products[existingProductIndex].quantity = product.quantity;
+		swal.fire({
+			title: "El producto ya se encuentra en el carrito",
+		});
+		
     } else {
     // 6. Agregar producto al carrito si no existe
         products.push(product)
-    }
+    } */
 	// 7. Guardar el carrito actualizado
 	localStorage.setItem("cart", JSON.stringify(products))
 }
