@@ -11,7 +11,7 @@ class Product {
         this.imagesSmall = imagesSmall
     }
 }
-const card = [
+export const card = [
     new Product("assets/imgs/001-xiaomi-mijia-foco-bombilla-led-e27.jpg", "XIAOMI MIJIA FOCO BOMBILLA LED E27","Ilumina tu casa con la bella luz blanca que te dará el bello foco bombilla. Su tamaño compacto lo hace adaptable a distintos dispositivos de iluminación.",19.90, "50% Off", "IGV incluido", "001",["Blanco","Negro", "Gris"],["assets/imgs/001--xiaomi-mijia-foco-bombilla-led-e27.jpg","assets/armas/arma3.webp"]),
     new Product("assets/imgs/002-mascarilla-desechable-50-unidades.jpg", "MASCARILLA DESECHABLE - 50 UNIDADES","Fácil respiración y eficiencia en filtración bacteriana, protege la nariz y boca para minimizar las partículas infecciosas.",4.90, "50% Off", "IGV incluido", "002",["Blanco","Negro", "Gris"],["assets/armas/arma2.webp","assets/armas/arma2.webp"]),
     new Product("assets/imgs/003-xiaomi-mi-mochila-casual.jpg", "XIAOMI MI MOCHILA CASUAL","Xiaomi Mi Mochila Casual es muy ligera, ya que pesa sólo 165 gramos y es lo suficientemente grande para contener todo lo esencial para cuando quieras ir de compras, viajar, ir a la escuela.",39.90, "50% Off", "IGV incluido", "003", ["Blanco","Negro", "Gris"],["assets/armas/arma2.webp","assets/armas/arma2.webp"]),
@@ -21,4 +21,3 @@ const card = [
     new Product("assets/imgs/007-bolsa-de-agua-terapeutica-.jpg", "BOLSA DE AGUA TERAPÉUTICA","Con la bolsa de agua caliente podrás relajar los músculos y los hombros tensados causados por demasiado estrés y entrenamiento intenso.",9.90, "50% Off", "IGV incluido", "007", ["Blanco","Negro", "Gris"],["assets/armas/arma2.webp","assets/armas/arma2.webp"]),
     new Product("assets/imgs/008-desodorante-roll-on-by-esika.jpg", "DESODORANTE ROLL ON BY ÉSIKA","Desodorante roll on sin alcohol.", 5.90, "50% Off", "IGV incluido", "008", ["Blanco","Negro", "Gris"],["assets/armas/arma2.webp","assets/armas/arma2.webp"]),
 ]
-export { card }

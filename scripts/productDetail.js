@@ -1,3 +1,5 @@
+import { card } from "./products.js"
+
 const query = location.search;
 const params = new URLSearchParams(query);
 const id = params.get('id');
@@ -7,7 +9,7 @@ function printDetails(id) {
     const detailsTemplate = `
     <div class="product-images">
 		<div class="images-small">
-		${product.imagesSmall.map(each =>`<img src="${each}" alt="mini" onclick="changeMini(event)"/>`).join("")}
+		${product.imagesSmall.map(each =>`<img src="${each}" alt="mini" id="changeMini"/>`).join("")}
 		</div>
 		<div class="image-big">
 		<img src="${product.img}" alt="" id="bigImg">
@@ -44,7 +46,7 @@ function printDetails(id) {
 				<label for="">
 					<input class="cantidad" type="number" name="" onchange="changeSubtotal(event)" value="1" id="quantity-" min="1">				
 				</label>	
-				<button type="button" onclick="saveProduct()">Añadir al carrito</button>
+				<button type="button" id="saveProduct">Añadir al carrito</button>
 				<button type="button" id="heartIcon"><i class="fa-regular fa-heart"></i></button>
 			</div>
 		</div>
@@ -52,23 +54,12 @@ function printDetails(id) {
     `;
     const detailsSelector = document.querySelector("#details");
     detailsSelector.innerHTML = detailsTemplate;
+
 }
 printDetails(id)
 
-function changeMini(event) {
-	const selectedSrc = event.target.src;
-	const bigSelector = document.querySelector("#bigImg");
-	bigSelector.src = selectedSrc;
-}
-function changeSubtotal(event){
-	const cantidadProducts = parseInt(event.target.value)
-	const product = card.find((product) => product.id === id);
-	const subtotal = (cantidadProducts * product.price).toFixed(2)
-	const newPrice = document.getElementById("price")
-	newPrice.textContent = `S/ ${subtotal}`
-}
 
-function saveProduct(event) {
+document.getElementById("saveProduct").addEventListener("click", (event) => {
 	// 1. Obtener el producto seleccionado
 	const found = card.find((product) => product.id === id);
 	 // 2. Crear el objeto producto
@@ -89,13 +80,10 @@ function saveProduct(event) {
 	}
 	 // 4. Buscar producto existente en el carrito
 	 const existingProductIndex = products.findIndex((productInCart) => productInCart.id === product.id);
-	 
-	 console.log(existingProductIndex);
-	 
+
 	 // 5. Actualizar la cantidad si el producto existe
 	 if (existingProductIndex !== -1) {
         const existingProduct = products[existingProductIndex];
-		console.log(existingProduct);
         if (existingProduct.quantity === product.quantity) {
             // Si la cantidad no ha cambiado, mostrar la notificación
             swal.fire({
@@ -118,18 +106,42 @@ function saveProduct(event) {
             icon: "success",
         });
     }
-	 
-/* 	if (existingProductIndex !== -1) {
-        products[existingProductIndex].quantity = product.quantity;
-		swal.fire({
-			title: "El producto ya se encuentra en el carrito",
-		});
-		
-    } else {
-    // 6. Agregar producto al carrito si no existe
-        products.push(product)
-    } */
 	// 7. Guardar el carrito actualizado
 	localStorage.setItem("cart", JSON.stringify(products))
-}
-
+});
+document.getElementById("heartIcon").addEventListener('click', (event) => {
+    const found = card.find((product) => product.id === id)
+    let product = {
+        id: id,
+		title: found.title,
+		price: found.price,
+		image: found.img,
+		description: found.description,
+		/* color: document.querySelector(`#color-`).value, 
+		quantity: document.querySelector("#quantity-").value, */
+    }
+	const productsInCart = localStorage.getItem("favorits")
+	let products= []
+	if(productsInCart) {
+		products = JSON.parse(productsInCart)
+	}
+	// Verifica si el producto ya existe en la lista de favoritos
+	const productExists = products.some((p) => p.id === product.id);
+	if (!productExists) {
+        // Agrega el producto solo si no existe
+        products.push(product);
+        localStorage.setItem("favorits", JSON.stringify(products));
+    }
+})
+document.getElementById("changeMini").addEventListener('click', (event) => {
+	const selectedSrc = event.target.src;
+	const bigSelector = document.querySelector("#bigImg");
+	bigSelector.src = selectedSrc;
+})
+document.getElementById("quantity-").addEventListener("change", (event) => {
+	const cantidadProducts = parseInt(event.target.value)
+	const product = card.find((product) => product.id === id);
+	const subtotal = (cantidadProducts * product.price).toFixed(2)
+	const newPrice = document.getElementById("price")
+	newPrice.textContent = `S/ ${subtotal}`
+}); 

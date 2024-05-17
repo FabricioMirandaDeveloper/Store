@@ -58,7 +58,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         { title: "BLOG", linkTo: "#" },
         { title: "CONTACTENOS", linkTo: "#" },
     ]; */
-    console.log(optionsNav);
     const navHtml = optionsNav.reduce((html, option) => {
         return `${html}
         <li>
