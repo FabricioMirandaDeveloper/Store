@@ -1,6 +1,6 @@
 import { card } from "./products.js"
 
-function createCard(card) {
+export function createCard(card) {
     const formattedPrice = card.price.toFixed(2);
     return `
         <a class="product-card" href="details.html?id=${card.id}">
@@ -15,7 +15,7 @@ function createCard(card) {
     `
 }
 
-function printCards(arrayOfProducts, idSelector) {
+export function printCards(arrayOfProducts, idSelector) {
     let productsTemplate = ""
     for(const element of arrayOfProducts) {
         productsTemplate = productsTemplate + createCard(element)
