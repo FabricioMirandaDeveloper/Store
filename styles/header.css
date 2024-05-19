@@ -104,12 +104,14 @@ header {
         width: 100vw;
         height: calc(100vh - 90px);
         opacity: 0;
+        display: none;
     } 
     .nav ul li a{
         color: var(--white);
     }
     .nav .active {
         opacity: 1;
+        display: flex;
     }
 }
 @media (max-width: 480px) {

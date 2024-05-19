@@ -10,7 +10,7 @@ headerSelector2.innerHTML = `
             </div>
             <div class="bars">
                 <label for="check" "class="checkbtn" id="menuResponsive">
-                    <i class="fa-solid fa-bars"></i>
+                    <i class="fa-solid fa-bars" id="menuIcon"></i>
                 </label>
             </div>
             <div class="social">
@@ -34,10 +34,28 @@ headerSelector2.innerHTML = `
         </div>
     </div>
 `
+// Dando interactivad al menu bar para desplegar opciones
+let menuResponsive = document.getElementById("menuResponsive")
+menuResponsive.addEventListener("click", () => {
+    const navBar = document.querySelector(".nav ul");
+    navBar.classList.toggle("active");
+})
+// Creando el menu bar responsive
+document.getElementById("menuResponsive").addEventListener("click", () => {
+    let menuIcon = document.getElementById("menuIcon")
+    console.log(menuIcon);
+    if (menuIcon.classList.contains("fa-bars")) {
+        menuIcon.classList.remove("fa-bars");
+        menuIcon.classList.add("fa-x");
+    } else {
+        menuIcon.classList.remove("fa-x");
+        menuIcon.classList.add("fa-bars");
+    }
+
+}) 
 // inyecto dinamicamente la lista que se encuentra dentro de mi header
 const navSelector = document.getElementById("nav")
 const optionsNav = [
-    { title: "INICIO", linkTo: "./index.html", },
     { title: "PRODUCTOS", linkTo: "#" },
     { title: "GUÍA PARA COMPRAR", linkTo: "./orders.html" },
     { title: "CATALOGOS", linkTo: "#" },

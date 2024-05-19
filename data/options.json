@@ -1,10 +1,6 @@
 {
     "nav": [
         {
-            "title": "INICIO",
-            "linkTo": "./index.html"
-        },
-        {
             "title": "PRODUCTOS",
             "linkTo": "#"
         },

@@ -13,7 +13,7 @@ headerSelector.innerHTML = `
             </div>
             <div class="bars">
                 <label for="check" "class="checkbtn" id="menuResponsive">
-                    <i class="fa-solid fa-bars"></i>
+                    <i class="fa-solid fa-bars" id="menuIcon"></i>
                 </label>
             </div>
             <div class="social">
@@ -37,6 +37,26 @@ headerSelector.innerHTML = `
         </div>
     </div>
 `
+// Dando interactivad al menu bar para desplegar opciones
+let menuResponsive = document.getElementById("menuResponsive")
+menuResponsive.addEventListener("click", () => {
+    const navBar = document.querySelector(".nav ul");
+    navBar.classList.toggle("active");
+})
+// Creando el menu bar responsive
+document.getElementById("menuResponsive").addEventListener("click", () => {
+    let menuIcon = document.getElementById("menuIcon")
+    console.log(menuIcon);
+    if (menuIcon.classList.contains("fa-bars")) {
+        menuIcon.classList.remove("fa-bars");
+        menuIcon.classList.add("fa-x");
+    } else {
+        menuIcon.classList.remove("fa-x");
+        menuIcon.classList.add("fa-bars");
+    }
+
+}) 
+
 // inyecto dinamicamente la lista que se encuentra dentro de mi header
 /* fetch('./data/options.json')
     .then(response => {
