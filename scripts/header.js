@@ -8,7 +8,7 @@ headerSelector.innerHTML = `
             </div>
             <div class="form">
                 <form id="formulario">
-                    <input type="text" placeholder="Search" id="search"/>
+                    <input type="text" placeholder="Búsqueda en catálogo" id="search"/>
                 </form>
             </div>
             <div class="bars">
