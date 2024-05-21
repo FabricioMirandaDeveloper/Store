@@ -1,0 +1,68 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    height: inherit;
+    min-height: inherit;
+}
+header {
+    background-color: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header img {
+    width: 200px;
+}
+main {
+    display: flex;
+    justify-content: center;
+}
+main div {
+    background: var(--color-principal);
+    max-width: 800px;
+    min-width: 500px;
+    padding: 2rem;
+    margin: 2rem 0;
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+main div h1 {
+    padding: 1rem;
+}
+main form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+main form label input {
+    width: 300px;
+    border-radius: 5px;
+}
+main form h6 {
+    align-self: flex-end;
+    padding-right: 1rem;
+    margin-right: 1rem;
+    color: gray;
+    font-size: 1rem;
+}
+main div, label input, button{
+    width: 200px;
+    margin: 1rem 0;
+    padding: 1rem;
+}
+main form button {
+    background: var(--white);
+    color: var(--color-principal);
+    border-radius: 5px;
+}
+.text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    text-align: center;
+}
