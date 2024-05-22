@@ -1,4 +1,4 @@
-import { card } from "./products.js"
+import { obtenerProducts } from "./funtions/utilProducts.js";
 import { printCards } from "./productCards.js"
 
 const searchSelector = document.getElementById("search")
