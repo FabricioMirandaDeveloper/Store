@@ -1,11 +1,11 @@
-import { card } from "./products.js"
-
+import { obtenerProducts } from "./funtions/utilProducts.js";
+const productss = await obtenerProducts()
 const query = location.search;
 const params = new URLSearchParams(query);
 const id = params.get('id');
 
 function printDetails(id) {
-    const product = card.find((product) => product.id === id);
+    const product = productss.find((product) => product.id === id);
     const detailsTemplate = `
     <div class="product-images">
 		<div class="images-small">
@@ -61,7 +61,7 @@ printDetails(id)
 
 document.getElementById("saveProduct").addEventListener("click", (event) => {
 	// 1. Obtener el producto seleccionado
-	const found = card.find((product) => product.id === id);
+	const found = productss.find((product) => product.id === id);
 	 // 2. Crear el objeto producto
 	let product = {
 		id: id,
@@ -110,7 +110,7 @@ document.getElementById("saveProduct").addEventListener("click", (event) => {
 	localStorage.setItem("cart", JSON.stringify(products))
 });
 document.getElementById("heartIcon").addEventListener('click', (event) => {
-    const found = card.find((product) => product.id === id)
+    const found = productss.find((product) => product.id === id)
     let product = {
         id: id,
 		title: found.title,
@@ -140,7 +140,7 @@ document.getElementById("changeMini").addEventListener('click', (event) => {
 })
 document.getElementById("quantity-").addEventListener("change", (event) => {
 	const cantidadProducts = parseInt(event.target.value)
-	const product = card.find((product) => product.id === id);
+	const product = productss.find((product) => product.id === id);
 	const subtotal = (cantidadProducts * product.price).toFixed(2)
 	const newPrice = document.getElementById("price")
 	newPrice.textContent = `S/ ${subtotal}`
