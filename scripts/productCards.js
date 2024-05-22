@@ -1,4 +1,5 @@
-import { card } from "./products.js"
+/* import { card } from "./products.js" */
+import { obtenerProducts } from "./funtions/utilProducts.js";
 
 export function createCard(card) {
     const formattedPrice = card.price.toFixed(2);
@@ -23,4 +24,5 @@ export function printCards(arrayOfProducts, idSelector) {
     const productsSelector = document.getElementById(idSelector)
     productsSelector.innerHTML = productsTemplate
 }
-printCards(card,"products")
+const productss = await obtenerProducts()
+printCards(productss,"products")

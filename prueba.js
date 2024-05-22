@@ -1,4 +1,4 @@
-const namee = "carlos"
-const age = 25
-const user = {namee, age}
-console.log(user);
+const multi = function(a,b) {
+    return a * b
+}
+console.log(multi(3,4));
