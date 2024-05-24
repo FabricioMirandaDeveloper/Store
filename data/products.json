@@ -2,7 +2,7 @@
     "products": [
         {
             "img": "assets/imgs/001-xiaomi-mijia-foco-bombilla-led-e27.jpg",
-            "title": "XIAOMI MIJIA FOCO BOMBILLA LED E27",
+            "title": "Xiaomi Mijia Foco Bombilla Led E27",
             "description": "Ilumina tu casa con la bella luz blanca que te dará el bello foco bombilla. Su tamaño compacto lo hace adaptable a distintos dispositivos de iluminación.",
             "price": 19.9,
             "discount": "50% Off",
@@ -14,13 +14,12 @@
                 "Gris"
             ],
             "imagesSmall": [
-                "assets/imgs/001--xiaomi-mijia-foco-bombilla-led-e27.jpg",
-                "assets/armas/arma3.webp"
+                "assets/imgs/001--xiaomi-mijia-foco-bombilla-led-e27.jpg"
             ]
         },
         {
             "img": "assets/imgs/002-mascarilla-desechable-50-unidades.jpg",
-            "title": "MASCARILLA DESECHABLE - 50 UNIDADES",
+            "title": "Mascarilla Desechable - 50 Unidades",
             "description": "Fácil respiración y eficiencia en filtración bacteriana, protege la nariz y boca para minimizar las partículas infecciosas.",
             "price": 4.9,
             "discount": "50% Off",
@@ -38,7 +37,7 @@
         },
         {
             "img": "assets/imgs/003-xiaomi-mi-mochila-casual.jpg",
-            "title": "XIAOMI MI MOCHILA CASUAL",
+            "title": "Xiaomi Mi Mochila Casual",
             "description": "Xiaomi Mi Mochila Casual es muy ligera, ya que pesa sólo 165 gramos y es lo suficientemente grande para contener todo lo esencial para cuando quieras ir de compras, viajar, ir a la escuela.",
             "price": 39.9,
             "discount": "50% Off",
@@ -56,7 +55,7 @@
         },
         {
             "img": "assets/imgs/004-redmi-power-bank-cargador-portatil-xiaomi-20000mah.jpg",
-            "title": "REDMI POWER BANK - CARGADOR PORTÁTIL XIAOMI 20000MAH",
+            "title": "Redmi Power Bank - Cargador Portátil Xiaomi 20000mAh",
             "description": "El Redmi Power Bank 20000 MAh (cargador portátil) de color Negro tiene carga rápida de 18W y capacidad para cargar 2 celulares a la vez. Ideal para viajes y para personas que suelen estar fuera de casa todo el día. Nunca más te quedes sin batería en el celular.  Es el cargador de viajes perfecto para ti.",
             "price": 99.9,
             "discount": "50% Off",
@@ -74,7 +73,7 @@
         },
         {
             "img": "assets/imgs/005-deerma-freidora-de-aire-nathome-4l.jpg",
-            "title": "DEERMA FREIDORA DE AIRE NATHOME 4L",
+            "title": "Deerma Freidora de Aire Nathome 4L",
             "description": "Utiliza aire caliente para cocinar sus alimentos favoritos con poco o nada de aceite agregado. La nueva tecnología de eliminación de grasa está diseñada para extraer y recoger la grasa de los alimentos, por lo que es la forma más saludable de freír para usted y su familia.",
             "price": 177.77,
             "discount": "50% Off",
@@ -92,7 +91,7 @@
         },
         {
             "img": "assets/imgs/006-audifonos-bluetooth-lenovo-heo5.jpg",
-            "title": "AUDÍFONOS BLUETOOTH LENOVO HEO5",
+            "title": "Audífonos Bluetooth Lenovo HEO5",
             "description": "Los nuevos Neckband Earphone HE05 de Lenovo son compatibles con todos los dispositivos Bluetooth, además tiene una transmisión hasta de 20 metros manteniendo su calidad de sonido nítido gracias a sus auriculares estéreo mágneticos que se unen perefectamente para evitar enredos. La banda para el cuello de silicona se puede girar o doblar adaptándose a tu cuello sin deslizarse.",
             "price": 39.9,
             "discount": "50% Off",
@@ -110,7 +109,7 @@
         },
         {
             "img": "assets/imgs/007-bolsa-de-agua-terapeutica-.jpg",
-            "title": "BOLSA DE AGUA TERAPÉUTICA",
+            "title": "Bolsa De Agua Terapéutica",
             "description": "Con la bolsa de agua caliente podrás relajar los músculos y los hombros tensados causados por demasiado estrés y entrenamiento intenso.",
             "price": 9.9,
             "discount": "50% Off",
@@ -128,7 +127,7 @@
         },
         {
             "img": "assets/imgs/008-desodorante-roll-on-by-esika.jpg",
-            "title": "DESODORANTE ROLL ON BY ÉSIKA",
+            "title": " Desodorante Roll On By Ésika",
             "description": "Desodorante roll on sin alcohol.",
             "price": 5.9,
             "discount": "50% Off",

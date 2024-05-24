@@ -5,7 +5,6 @@ async function obtenerProducts() {
             throw new Error('Network response was not ok');
         }
         const data = await response.json();
-        console.log("Obtuve correctamente los productos");
         return data.products
     } catch (error) {
         console.error('ERROR:', error);
