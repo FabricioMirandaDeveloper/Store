@@ -1,4 +1,3 @@
-
 import { obtenerProducts } from "./funtions/utilProducts.js";
 
 export function createCard(card) {
@@ -8,11 +7,11 @@ export function createCard(card) {
         <img class="product-img" src="${card.img}" alt="Macbook Pro"/>
         <div class="product-info">
             <span class="product-title">${card.title}</span>
-            <span class="product-description"></span>
             <div class="product-price-block">
                 <span class="price">S/ ${formattedPrice}</span>
             </div>
         </div>
+        </a>
     `
 }
 

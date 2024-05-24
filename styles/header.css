@@ -19,13 +19,12 @@ header {
 .search .form input {
     height: 25px;
     border-radius: 1rem;
-    border: var(--color-principal) 2px solid;
+    border: var(--color-principal) 3px solid;
     width: 300px;
     padding: 2rem;
     font-size: 1.6rem;
 }
 .search .form input:focus {
-    border: var(--color-principal) 2px solid;
     outline: none;
 }
 .search .bars {
