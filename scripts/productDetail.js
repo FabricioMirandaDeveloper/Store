@@ -43,9 +43,13 @@ function printDetails(id) {
 				<span>Recibe aproximadamente entre 10 y 15 dias habiles seleccionando envio normal</span>
 			</div>
 			<div class="buy">
-				<label for="">
-					<input class="cantidad" type="number" name="" onchange="changeSubtotal(event)" value="1" id="quantity-" min="1">				
-				</label>	
+				<form id="form">
+					<label for="">
+						<button type="button" class="btn-number" data-increment="-1">-</button>			
+						<input class="cantidad" type="number" name="" onchange="changeSubtotal(event)" value="1" id="quantity-" min="1">	
+						<button type="button" class="btn-number" data-increment="1">+</button>
+					</label>	
+				</form>
 				<button type="button" id="saveProduct">Añadir al carrito</button>
 				<button type="button" id="heartIcon"><i class="fa-regular fa-heart"></i></button>
 			</div>
@@ -145,3 +149,18 @@ document.getElementById("quantity-").addEventListener("change", (event) => {
 	const newPrice = document.getElementById("price")
 	newPrice.textContent = `S/ ${subtotal}`
 }); 
+
+document.getElementById('form').addEventListener('click', (event) => {
+	if (event.target.classList.contains('btn-number')) {
+		const incrementOrDecrement = parseInt(event.target.getAttribute('data-increment'));
+		let inputValue = parseInt(document.getElementById("quantity-").value);
+		inputValue += incrementOrDecrement;
+		inputValue = Math.max(inputValue, 1)
+		document.getElementById("quantity-").value = inputValue;
+	}
+})
+document.getElementById("quantity-").addEventListener("blur", function() {
+    if (this.value === '') {
+        this.value = "1";
+    }
+});

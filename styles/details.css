@@ -81,12 +81,28 @@ main .product-checkout button {
   border-radius: 1.5rem;
   width: 50%;
 }
+#form label{
+  display: flex;
+  gap: 0 .5rem;
+}
+main label .btn-number {
+  padding: 5px 10px;
+  background-color: var(--color-principal);
+  border-color: var(--color-principal); 
+  color: var(--white);
+  cursor: pointer;
+  border-radius: .2rem;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
 main .product-checkout .cantidad {
   display: inline-block;
-  padding: .5rem 3rem;
+  padding: .5rem;
   background: white;
   color: white;
-  margin-right: .5rem;
+  border-radius: 1px;
 }
 main .product-checkout .buy {
   display: flex;
@@ -108,6 +124,7 @@ main .buy .cantidad {
 main {
   height: auto;
 }
+
 
 @media (max-width: 1024px) {
 }

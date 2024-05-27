@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="prueba.css">
+    <title>Ejemplo avanzado de input tipo número</title>
+</head>
+<body>
+    <form>
+        <label for="cantidad">Cantidad de productos:</label>
+        <div>
+            <button type="button" class="btn-number" onclick="changeValue(-1)">-</button>
+            <input type="number" id="cantidad" class="input-number" name="cantidad" min="1" max="100" step="1" value="1">
+            <button type="button" class="btn-number" onclick="changeValue(1)">+</button>
+        </div>
+        <input type="submit" value="Enviar">
+    </form>
+    <script src="prueba.js"></script>
+</body>
+</html>
