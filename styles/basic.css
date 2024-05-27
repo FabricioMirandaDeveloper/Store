@@ -3,13 +3,14 @@
     --color-principal: #830321;
     --color-terciario: #360712;
     --white: #ffffff;
+    --twoWhite: #f6f6f6;
     --black: #232323;
 }
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Reddit Mono", monospace;
+    font-family: "Manrope", sans-serif;
     /* border: 1px red solid; */
 }
 html {
