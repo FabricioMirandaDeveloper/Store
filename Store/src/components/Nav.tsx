@@ -8,7 +8,7 @@ const optionsNav = [
 ];
 export default function Nav() {
     return(
-        <ul className="h-custom flex flex-col justify-around list-none bg-primary">
+        <ul className="w-full flex flex-col justify-around list-none bg-primary">
             {optionsNav.map((option, index) => (
                 <li key={index}>
                     <a className="font-bold text-white" href={option.linkTo}>
