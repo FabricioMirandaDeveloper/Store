@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 
 export default function Products() {
     const [data, setData] = useState([])
+    const apiUrl = import.meta.env.VITE_API_URL;
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await fetch("https://store-fcdd.onrender.com/products")
+                const response = await fetch(`${apiUrl}/products`)
                 const data = await response.json()
                 setData(data)
             } catch (e) {

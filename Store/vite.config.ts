@@ -9,7 +9,11 @@ export default defineConfig({
     port: 3000,      // El puerto en el que el servidor estará escuchando
     strictPort: true,
     proxy: {
-      '/api': 'http://localhost:5000',
-    }
+      '/api': {
+        target: 'http://localhost:5000', // Proxy para desarrollo
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ''),
+      },
+    },
   },
 })
