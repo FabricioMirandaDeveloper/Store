@@ -5,7 +5,7 @@ export default function Products() {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await fetch("http://localhost:5000/products")
+                const response = await fetch("https://store-fcdd.onrender.com/products")
                 const data = await response.json()
                 setData(data)
             } catch (e) {

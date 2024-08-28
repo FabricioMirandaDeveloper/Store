@@ -7,6 +7,9 @@ export default defineConfig({
   server: {
     host: '0.0.0.0', // Escucha en todas las interfaces de red
     port: 3000,      // El puerto en el que el servidor estará escuchando
-    strictPort: true // Opcional: Si true, el servidor fallará si el puerto está en uso
+    strictPort: true,
+    proxy: {
+      '/api': 'http://localhost:5000',
+    }
   },
 })
