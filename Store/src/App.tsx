@@ -5,8 +5,9 @@ function App() {
 
   return (
     <>
-    <Header/>
-    <Products/>
+      <Header />
+      <Products />
+
     </>
   )
 }

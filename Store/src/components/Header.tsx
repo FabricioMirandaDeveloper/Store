@@ -24,22 +24,22 @@ export default function Header() {
                             </div>
                             {/* ICONOS */}
                             <div className="hidden sm:flex gap-4 mt-4 sm:mt-0">
-                                <a id="iconoCarrito" href="cart.html">
+                                <a id="iconoCarrito">
                                     <i className="text-3xl text-primary px-2.5 py-0">
                                         <FontAwesomeIcon icon={faCartShopping} />
                                     </i>
                                 </a>
-                                <a id="iconoCorazon" href="favorite.html">
+                                <a id="iconoCorazon">
                                     <i className="text-3xl text-primary px-2.5 py-0">
                                         <FontAwesomeIcon icon={faHeart} />
                                     </i>
                                 </a>
-                                <a id="iconoUsuario" href="#">
+                                <a id="iconoUsuario">
                                     <i className="text-3xl text-primary px-2.5 py-0">
                                         <FontAwesomeIcon icon={faUser} />
                                     </i>
                                 </a>
-                                <a id="iconoPerfil" href="#">
+                                <a id="iconoPerfil">
                                     <i className="text-3xl text-primary px-2.5 py-0">
                                         <FontAwesomeIcon icon={faUserCheck} />
                                     </i>
@@ -55,7 +55,7 @@ export default function Header() {
                             </div>
                         </div>
                         {/* BUSQUEDA */}
-                        <div className={`w-full justify-center ${isMenuOpen ? 'hidden' : 'flex'} justify-center mt-4 sm:mt-0`}>
+                        <div className={`w-full justify-center ${isMenuOpen ? 'hidden' : 'flex'} justify-center mt-4 sm:mt-0 lg:absolute`}>
                             <form>
                                 <input className="h-10 rounded-lg border-2 border-primary w-[300px] border-solid p-2 text-base sm:text-xl focus:outline-none" type="text" placeholder="Búsqueda en catálogo" />
                             </form>
