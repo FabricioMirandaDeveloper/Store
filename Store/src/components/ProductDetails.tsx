@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Product } from "./Products";
+import Header from "./Header";
 
 export default function ProductDetails() {
     const { id } = useParams<{ id: string }>();
@@ -30,15 +31,18 @@ export default function ProductDetails() {
     }
 
     return (
-        <div className="w-11/12 mx-auto mt-24">
-            <div className="flex flex-col lg:flex-row gap-6">
-                <img src={product.img} alt={product.title} className="w-32 lg:w-1/2" />
-                <div className="flex flex-col justify-center">
-                    <h1 className="text-3xl font-bold">{product.title}</h1>
-                    <p className="text-xl text-primary mt-2">S/ {product.price}</p>
+        <>
+        <Header/>
+        <main className="w-11/12 mx-auto mt-24">
+            <div className="flex flex-col items-center text-center">
+                <img src={product.img} alt={product.title} className="w-48" />
+                <div className="flex flex-col">
+                    <h1 className="text-lg font-bold">{product.title}</h1>
                     <p className="mt-4">{product.description}</p>
+                    <p className="text-xl font-bold mt-2 text-primary">S/ {product.price}</p>
                 </div>
             </div>
-        </div>
+        </main>
+        </>
     )
 }

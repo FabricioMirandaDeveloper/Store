@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faCartShopping, faHeart, faUser, faUserCheck, faX } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import Nav from "./Nav";
+import { Link } from "react-router-dom";
 
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -18,9 +19,9 @@ export default function Header() {
                         <div className="w-full flex justify-between items-center">
                             {/* LOGO */}
                             <div className="flex-shrink-0">
-                                <a href="index.html">
+                                <Link to="/">
                                     <img src="/logo.jpg" className="w-36 sm:w-52" />
-                                </a>
+                                </Link>
                             </div>
                             {/* ICONOS */}
                             <div className="hidden sm:flex gap-4 mt-4 sm:mt-0">
