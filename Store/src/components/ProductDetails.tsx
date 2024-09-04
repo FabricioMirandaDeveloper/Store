@@ -3,11 +3,12 @@ import { useParams } from "react-router-dom";
 import { Product } from "./Products";
 import Header from "./Header";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeartCirclePlus } from "@fortawesome/free-solid-svg-icons";
+import { faHeart, faHeartCirclePlus } from "@fortawesome/free-solid-svg-icons";
 
 export default function ProductDetails() {
     const { id } = useParams<{ id: string }>();
     const [product, setProduct] = useState<Product | null>(null);
+    const [isFavorite, setIsFavorite] = useState(false)
     const apiUrl = import.meta.env.VITE_API_URL;
 
 
@@ -17,6 +18,10 @@ export default function ProductDetails() {
                 const response = await fetch(`${apiUrl}/products/${id}`)
                 const data = await response.json()
                 setProduct(data)
+
+                const favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+                const productIsFavorite = favorites.some((fav: Product) => fav.id === data.id);
+                setIsFavorite(productIsFavorite);
             }
             if (id) {
                 fetchProductDetails();
@@ -30,18 +35,21 @@ export default function ProductDetails() {
 
     const handleAddToFavorites = () => {
         if (product) {
-            // Obtener productos favoritos actuales del localStorage
             const favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
 
-            // Agregar el nuevo producto a la lista de favoritos
-            favorites.push(product);
+            const isFavorite = favorites.some((fav: Product) => fav.id === product.id);
 
-            // Guardar la lista actualizada en el localStorage
-            localStorage.setItem("favorites", JSON.stringify(favorites));
-
-            console.log(`${product.title} agregado a favoritos!`);
+            if (!isFavorite) {
+                favorites.push(product);
+                localStorage.setItem("favorites", JSON.stringify(favorites))
+                setIsFavorite(true) 
+            } else {
+                const updatedFavorites = favorites.filter((fav: Product) => fav.id !== product.id);
+                localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+                setIsFavorite(false);
+            }
         }
-    };
+    }
 
     if (!product) {
         return <div>Cargando...</div>;
@@ -58,7 +66,7 @@ export default function ProductDetails() {
                         <p className="mt-4">{product.description}</p>
                         <div className="flex justify-evenly items-center">
                             <p className="text-2xl font-bold mt-2 text-primary">S/ {product.price}</p>
-                            <i className="text-xl" onClick={handleAddToFavorites}><FontAwesomeIcon icon={faHeartCirclePlus} /></i>
+                            <i className="text-xl" onClick={handleAddToFavorites}><FontAwesomeIcon className="text-primary" icon={isFavorite ? faHeart  : faHeartCirclePlus} /></i>
                         </div>
                     </div>
                 </div>
