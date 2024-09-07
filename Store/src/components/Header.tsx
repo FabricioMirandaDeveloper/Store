@@ -1,15 +1,31 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faCartShopping, faHeart, faUser, faUserCheck, faX } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Nav from "./Nav";
 import { Link } from "react-router-dom";
 
 export default function Header() {
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false)
+    const [cartCount, setCartCount] = useState(0)
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen)
     }
+
+    useEffect(()=>{
+        const updateCartCount = () => {
+            const cart = JSON.parse(localStorage.getItem('cart') || '{}')
+            const count = Object.values(cart).reduce((acc, item) => acc + item.quantity, 0)
+            setCartCount(count)
+        }
+
+        updateCartCount()
+
+        window.addEventListener("storage",updateCartCount)
+        return () => {
+            window.removeEventListener("storage", updateCartCount)
+        }
+    },[])
     return (
         <>
             <header className="h-24 p-4">
@@ -24,23 +40,28 @@ export default function Header() {
                                 </Link>
                             </div>
                             {/* ICONOS */}
-                            <div className="hidden sm:flex gap-4 mt-4 sm:mt-0">
-                                <a id="iconoCarrito">
-                                    <i className="text-3xl text-primary px-2.5 py-0">
-                                        <FontAwesomeIcon icon={faCartShopping} />
-                                    </i>
-                                </a>
-                                <a id="iconoCorazon">
+                            <div className="flex justify-center items-center gap-1 sm:gap-4 ">
+                                <a>
                                     <i className="text-3xl text-primary px-2.5 py-0">
                                         <FontAwesomeIcon icon={faHeart} />
                                     </i>
                                 </a>
-                                <a id="iconoUsuario">
+                                <a className="relative">
+                                    <i className="w-full h-full text-3xl text-primary px-2.5 py-0">
+                                        <FontAwesomeIcon icon={faCartShopping} />
+                                    </i>
+                                    {cartCount > 0 && (
+                                            <span className="absolute bottom-5 left-8 bg-primary text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                                                {cartCount}
+                                            </span>
+                                        )}
+                                </a>
+                                <a className="hidden sm:flex">
                                     <i className="text-3xl text-primary px-2.5 py-0">
                                         <FontAwesomeIcon icon={faUser} />
                                     </i>
                                 </a>
-                                <a id="iconoPerfil">
+                                <a className="hidden sm:flex">
                                     <i className="text-3xl text-primary px-2.5 py-0">
                                         <FontAwesomeIcon icon={faUserCheck} />
                                     </i>

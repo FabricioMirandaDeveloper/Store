@@ -57,8 +57,9 @@ export default function ProductDetails() {
         if (product) {
             const cart = JSON.parse(localStorage.getItem('cart') || '{}');
             cart[product.id] = { ...product, quantity};
-            localStorage.setItem('cart', JSON.stringify(cart));
+            localStorage.setItem('cart', JSON.stringify(cart))
             toast.success("Producto Agregado")
+            window.dispatchEvent(new Event('storage'))
         }
     }
 

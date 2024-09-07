@@ -4,6 +4,7 @@ import App from './App.tsx'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import ProductDetails from './components/ProductDetails.tsx';
+import { CartProvider } from './components/CartContext.tsx';
 
 const router = createBrowserRouter([
   {
