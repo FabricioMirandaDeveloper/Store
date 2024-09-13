@@ -55,8 +55,8 @@ export default function ProductDetails() {
 
     const handleAddToCart = () => {
         if (product) {
-            const cart = JSON.parse(localStorage.getItem('cart') || '{}');
-            cart[product.id] = { ...product, quantity};
+            const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            cart[product.id] = { ...product, quantity}
             localStorage.setItem('cart', JSON.stringify(cart))
             toast.success("Producto Agregado")
             window.dispatchEvent(new Event('storage'))

@@ -4,7 +4,7 @@ import App from './App.tsx'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import ProductDetails from './components/ProductDetails.tsx';
-import { CartProvider } from './components/CartContext.tsx';
+import Cart from './components/Cart.tsx';
 
 const router = createBrowserRouter([
   {
@@ -14,6 +14,10 @@ const router = createBrowserRouter([
   {
     path: "/product/:id",
     element: <ProductDetails/>,
+  },
+  {
+    path: "cart",
+    element: <Cart/>
   }
 ])
 

@@ -46,7 +46,7 @@ export default function Header() {
                                         <FontAwesomeIcon icon={faHeart} />
                                     </i>
                                 </a>
-                                <a className="relative">
+                                <Link to={"/cart"} className="relative">
                                     <i className="w-full h-full text-3xl text-primary px-2.5 py-0">
                                         <FontAwesomeIcon icon={faCartShopping} />
                                     </i>
@@ -55,7 +55,7 @@ export default function Header() {
                                                 {cartCount}
                                             </span>
                                         )}
-                                </a>
+                                </Link>
                                 <a className="hidden sm:flex">
                                     <i className="text-3xl text-primary px-2.5 py-0">
                                         <FontAwesomeIcon icon={faUser} />
