@@ -52,16 +52,20 @@ export default function ProductDetails() {
             }
         }
     }
-
     const handleAddToCart = () => {
         if (product) {
             const cart = JSON.parse(localStorage.getItem('cart') || '[]');
-            cart[product.id] = { ...product, quantity}
-            localStorage.setItem('cart', JSON.stringify(cart))
-            toast.success("Producto Agregado")
-            window.dispatchEvent(new Event('storage'))
+            const existingProductIndex = cart.findIndex((item: Product) => item.id === product.id);
+            if (existingProductIndex >= 0) {
+                cart[existingProductIndex].quantity += quantity;
+            } else {
+                cart.push({ ...product, quantity });
+            }
+            localStorage.setItem('cart', JSON.stringify(cart));
+            toast.success("Producto Agregado");
+            window.dispatchEvent(new Event('storage'));
         }
-    }
+    };    
 
     if (!product) {
         return <div>Cargando...</div>;
