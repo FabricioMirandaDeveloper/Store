@@ -22,6 +22,8 @@ export default function Products() {
                 console.log(e);
             }
         }
+        
+        
 
         fetchProducts()
     }, [])

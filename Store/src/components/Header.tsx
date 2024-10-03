@@ -28,7 +28,7 @@ export default function Header() {
     },[])
     return (
         <>
-            <header className="h-24 p-4">
+            <header className="h-24 px-0 p-4">
                 <div className="w-11/12 mx-auto">
                     <div className="flex flex-col lg:flex-row gap-4 items-center justify-center">
                         {/* LOGO Y BAR */}
