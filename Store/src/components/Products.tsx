@@ -23,8 +23,6 @@ export default function Products() {
             }
         }
         
-        
-
         fetchProducts()
     }, [])
     return (

@@ -65,7 +65,7 @@ export default function Cart() {
                     </ul>
                 )}
             </div>
-            <div className="fixed bottom-0 text-center w-full bg-primary text-white text-lg p-2 ">
+            <div className="fixed bottom-0 text-center w-full bg-primary text-white text-lg p-2 rounded-t-lg">
                 <div className="flex justify-between">
                 <p>Total:</p>
                 <h2>S/ {total.toFixed(2)}</h2>
