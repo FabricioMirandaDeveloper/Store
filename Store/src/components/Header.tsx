@@ -1,8 +1,12 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faCartShopping, faHeart, faUser, faUserCheck, faX } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faCartShopping, faHeart, faMagnifyingGlass, faUser, faUserCheck, faX } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 import Nav from "./Nav";
 import { Link } from "react-router-dom";
+
+interface CartItem {
+    quantity: number
+}
 
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -14,7 +18,7 @@ export default function Header() {
 
     useEffect(()=>{
         const updateCartCount = () => {
-            const cart = JSON.parse(localStorage.getItem('cart') || '{}')
+            const cart = JSON.parse(localStorage.getItem('cart') || '{}') as Record<string,CartItem>
             const count = Object.values(cart).reduce((acc, item) => acc + item.quantity, 0)
             setCartCount(count)
         }
@@ -32,7 +36,7 @@ export default function Header() {
                 <div className="w-11/12 mx-auto">
                     <div className="flex flex-col lg:flex-row gap-4 items-center justify-center">
                         {/* LOGO Y BAR */}
-                        <div className="w-full flex justify-between items-center">
+                        <div className="w-full flex justify-between items-center z-10">
                             {/* LOGO */}
                             <div className="flex-shrink-0">
                                 <Link to="/">
@@ -77,9 +81,12 @@ export default function Header() {
                             </div>
                         </div>
                         {/* BUSQUEDA */}
-                        <div className={`w-full justify-center ${isMenuOpen ? 'hidden' : 'flex'} justify-center mt-4 sm:mt-0 lg:absolute`}>
-                            <form>
+                        <div className={`w-full justify-center ${isMenuOpen ? 'hidden' : 'flex'} justify-center mt-4 sm:mt-0 lg:absolute z-0`}>
+                            <form className="relative">
                                 <input className="h-10 rounded-lg border-2 border-primary w-[300px] border-solid p-2 text-base sm:text-xl focus:outline-none" type="text" placeholder="Búsqueda en catálogo" />
+                                <button type="submit" className="absolute right-2 top-1/2 transform -translate-y-1/2 text-primary">
+                                    <FontAwesomeIcon icon={faMagnifyingGlass} className="text-xl" />
+                                </button>
                             </form>
                         </div>
                     </div>
